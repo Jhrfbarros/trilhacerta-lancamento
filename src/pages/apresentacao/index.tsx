@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../../src/assets/video/videochamada.mp4'
-
+//import '../../../src/assets/video/videochamada.mp4';
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
@@ -8,12 +7,15 @@ import { Container } from '@mui/material';
 import ButtonSubmit from '../../../src/components/button';
 import InputsForm from '../../../src/components/inputs';
 
+const minicurriculo = require('../../assets/img/minicurriculo.jpg');
+const video = require('../../assets/video/videochamada.mp4')
+
 export default function Apresentacao() {
 
     return(
 
         <Container className="default-page">
-        <HeaderAppBar/>
+            <HeaderAppBar/>
                 <h1 className="title-page">TRILHA CERTA</h1>
                 
                 <a className="link-page" href="https://trilhacerta.com/">https://trilhacerta.com/</a>
@@ -28,11 +30,11 @@ export default function Apresentacao() {
                 e informação de Network
                 </p>
         
-        <video className="video-page" controls>
-                <source src="videochamada.mp4" type="videochamada/mp4"/>
-        </video>
+                <video className="video-page" controls>
+                    <source src={video} type="videochamada/mp4"/>
+                </video>
         
-                <img className="image-page" src="../../assets/img/minicurriculo.jpeg" alt="minicurriculo"></img>
+                <img className="image-page" src={minicurriculo} alt="minicurriculo"></img>
 
                 <h2 className="subtitle-page">FORMULARIO DE CADASTRO</h2>
                 <InputsForm/>
@@ -45,9 +47,9 @@ export default function Apresentacao() {
                 </select>
                 <ButtonSubmit/>
             
-        <FooterAppBar/>    
+            <FooterAppBar/>    
     
-    </Container>
+        </Container>
     
     )
 };
