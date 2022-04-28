@@ -12,13 +12,13 @@ const video = require('../../assets/video/videochamada.mp4')
 
 export default function Apresentacao() {
 
-    return(
+    return (
 
-        <Container className="default-page">
+        <Container maxWidth={false} className="default-page">
             <HeaderAppBar/>
-                <h1 className="title-page">TRILHA CERTA</h1>
-                
                 <a className="link-page" href="https://trilhacerta.com/">https://trilhacerta.com/</a>
+                
+                <h1 className="title-page">"VOCÊ UM PASSO A FRENTE"</h1>
                 
                 <p className="text-page">O Prof Ricardo Câncio  Santos, mestre em economia aplicada pela USP
                 e ex insider te disponibiliza acesso a informação que ele gostaria
