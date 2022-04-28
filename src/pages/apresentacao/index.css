@@ -1,0 +1,11 @@
+.default-page {
+align-items: center;
+width: 100%; 
+
+}
+
+.title-page {
+    font-size: 40px;
+    justify-content: center;
+    
+}
