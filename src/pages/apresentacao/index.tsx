@@ -3,7 +3,7 @@ import React from 'react';
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
-import { Grid, Box, Container } from '@mui/material';
+import { Grid, Container } from '@mui/material';
 import ButtonSubmit from '../../../src/components/button';
 import InputsForm from '../../../src/components/inputs';
 
@@ -36,16 +36,16 @@ export default function Apresentacao() {
                 </Grid>
             </Grid>
         
-            <Container>
+            <Grid container >
                 <video className="video-page" controls>
                     <source src={video} type="videochamada/mp4"/>
                 </video>
-            </Container>
-            <Container>
+            </Grid>
+            <Grid container >
                 <img className="image-page" src={minicurriculo} alt="minicurriculo"></img>
-            </Container>
+            </Grid >
         
-            <Container>                
+            <Grid container >                
                 <h2 className="subtitle-page">FORMULARIO DE CADASTRO</h2>
                 
                 <InputsForm/>
@@ -57,7 +57,7 @@ export default function Apresentacao() {
                     <option value="nao">Não</option>
                 </select>
                 <ButtonSubmit/>
-            </Container>
+            </Grid>
 
             <FooterAppBar/>    
     
