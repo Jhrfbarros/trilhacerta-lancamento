@@ -13,8 +13,10 @@
 }
 
 .texto-page{
-    background-color: #164597;
-    padding: 60px 0px;
+   font-size: 20px;
+   height: 400px;
+    padding: 10px 0px;
+    line-height: 45px;
 }
 
 .texto-page .box-texto{
@@ -25,11 +27,19 @@
     text-align: justify;
 }
 
+.form-container .image-page {
+    border-radius: 10px;
+    margin: auto 40px;
+}
+
+
 .player{
-    width: 100%;
+    width: 1500px;
     height: 544px;
+    align-items: center;
+    padding: 25px 165px;
     margin: 25px 0px;
-    border-radius: 10px; 
+    border-radius: 20px;
 }
 
 .box-texto {
@@ -38,4 +48,15 @@
     line-height: 17px;
     font-weight: 400;
     color: #FFF;
+}
+
+.form-grid .subtitle-page {
+    font-size: 25px;
+    margin-bottom: 10px;
+    
+}
+
+.form-grid .texto-form {
+    font-size: 20px;
+    margin: 10px;
 }
