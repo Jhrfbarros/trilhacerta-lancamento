@@ -3,21 +3,20 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+
 
 export default function HeaderAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar variant="dense">
-          
-          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          
-          <Typography variant="h6" color="inherit" component="div">
+        <Toolbar className='header' variant="dense">
+                   
+          <Typography className='title' variant="h6" color="inherit" component="div">
             TRILHA CERTA
+          </Typography>
+          
+          <Typography className='slogan' variant="h6" color="inherit" component="p">
+            Você um passo a frente
           </Typography>
           
         </Toolbar>

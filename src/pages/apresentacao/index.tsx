@@ -15,14 +15,13 @@ export default function Apresentacao() {
     return (
 
         <Container maxWidth={false} className="default-page">
+            
             <HeaderAppBar />
-
-            <Grid container className="title">
-                <a className="link-page" href="https://trilhacerta.com/">https://trilhacerta.com/</a>
-                <h1 className="title-page">"VOCÊ UM PASSO A FRENTE"</h1>
-            </Grid>
-
-            <Grid container className="texto-page">
+            
+            <Grid container >
+                <video className="video-page" controls>
+                    <source src={video} type="videochamada/mp4"/>
+                </video>
                 <Grid item xs={12} md={12} lg={12} className='box-texto'>
                     <p className="text-page">O Prof Ricardo Câncio  Santos, mestre em economia aplicada pela USP
                     e ex insider te disponibiliza acesso a informação que ele gostaria
@@ -35,12 +34,7 @@ export default function Apresentacao() {
                     </p>
                 </Grid>
             </Grid>
-        
-            <Grid container >
-                <video className="video-page" controls>
-                    <source src={video} type="videochamada/mp4"/>
-                </video>
-            </Grid>
+                    
             <Grid container >
                 <img className="image-page" src={minicurriculo} alt="minicurriculo"></img>
             </Grid >
