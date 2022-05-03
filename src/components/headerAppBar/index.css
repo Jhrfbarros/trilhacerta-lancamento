@@ -1,16 +1,19 @@
 .header {
     text-align: center;
     font-family: Inter, Helvetica, sans-serif;
+    padding: 10px 0;
 }
 
 
-.header .title{
+.title{
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
+    text-align: center;
 }
 
-.header .slogan {
+.slogan {
+    text-align: center;
     font-weight: 400;
     font-size: 8px;
     line-height: 10px;
