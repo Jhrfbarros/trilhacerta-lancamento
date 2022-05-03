@@ -1,5 +1,5 @@
-import { Grid, Container } from "@mui/material";
 import React from "react";
+import { Grid, Container } from "@mui/material";
 import HeaderAppBar from "../../components/headerAppBar";
 import FooterAppBar from "../../components/footerAppBar";
 
@@ -16,7 +16,7 @@ export default function TrilhaCerta() {
     <Grid container >
         <h3>TRILHA CERTA</h3>
         <p>Com esse simples passo você acabou de se tornar um Trilha Certa.</p>
-            </Grid>
+    </Grid>
             
     <Grid container >     
         <figure>

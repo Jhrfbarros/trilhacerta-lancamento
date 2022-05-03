@@ -2,10 +2,16 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-export default function ButtonSubmit() {
+interface ButtonModalProps {
+  
+  url:string,
+}
+
+
+export default function ButtonSubmit({url}:ButtonModalProps) {
   return (
     <Stack spacing={2} direction="row">
-        <Button variant="contained">Enviar</Button>
+        <Button href={url} className='button-form' variant="contained">Enviar</Button>
     </Stack>
   );
 }

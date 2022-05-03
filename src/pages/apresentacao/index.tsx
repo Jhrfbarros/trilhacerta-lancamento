@@ -7,6 +7,8 @@ import { Grid, Container } from '@mui/material';
 import ButtonSubmit from '../../../src/components/button';
 import InputsForm from '../../../src/components/inputs';
 
+
+
 const minicurriculo = require('../../assets/img/minicurriculo.jpg');
 const video = require('../../assets/video/videochamada.mp4')
 
@@ -57,14 +59,10 @@ export default function Apresentacao() {
                             <option value="sim" selected>Sim</option>
                             <option value="nao">Não</option>
                         </select>
-                        <ButtonSubmit />
+                        <ButtonSubmit url={'http://localhost:3000/apresentacao/trilhacerta'} />
                     </Grid>    
                 </Grid>
-            
-                               
-                    
-                    
-                
+                       
             </Grid>
 
             <FooterAppBar/>    
