@@ -23,12 +23,11 @@
     text-align: justify;
 }
 
-.box-texto {
-    text-align: justify;
-}
+
 
 .gradient {
-
+    background: rgb(33,17,114);
+    background: linear-gradient(180deg, rgba(33,17,114,1) 0%, rgba(18,55,142,1) 100%);
 }
 
 .player{
@@ -36,4 +35,12 @@
     height: 544px;
     margin: 25px 0px;
     border-radius: 10px; 
+}
+
+.box-texto {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    color: #FFF;
 }

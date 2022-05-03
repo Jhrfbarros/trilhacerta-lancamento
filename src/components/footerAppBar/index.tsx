@@ -10,7 +10,7 @@ import './index.css'
 
 export default function FooterPage() {
 return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className='footer-box'>
       <AppBar className='text-footer' position="static">
         <Toolbar  variant="dense">
           <Typography variant="h6" color="inherit" component="div">
@@ -26,7 +26,3 @@ return (
     </Box>
 );
 }
-
-<Typography variant="body2" color="textSecondary" align="center">
-    
-    </Typography>
