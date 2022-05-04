@@ -13,10 +13,10 @@
 }
 
 .texto-page{
-   font-size: 20px;
-   height: 400px;
+    font-size: 20px;
     padding: 10px 0px;
-    line-height: 45px;
+    line-height: 30px;
+    
 }
 
 .texto-page .box-texto{
@@ -29,7 +29,7 @@
 
 .form-container .image-page {
     border-radius: 10px;
-    margin: auto 40px;
+    width: 100%;
 }
 
 .video_grid{
@@ -50,6 +50,10 @@
     line-height: 17px;
     font-weight: 400;
     color: #FFF;
+}
+
+.form-grid{
+    margin-top: 30px;
 }
 
 .form-grid .subtitle-page {

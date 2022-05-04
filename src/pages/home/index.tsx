@@ -27,42 +27,41 @@ export default function Apresentacao() {
                     
                 </Grid>
             </Container>
-            
-            <Grid container className='form-container'>
-                <Grid item xs={6} md={6} lg={6} className='curriculo-grid'>
-                    <img className="image-page" src={minicurriculo} alt="minicurriculo"></img>
-                </Grid >
+            <Container> 
+                <Grid container className='form-container' spacing={3}>
+                    <Grid item xs={12} md={6} lg={6} className='curriculo-grid'>
+                        <img className="image-page" src={minicurriculo} alt="minicurriculo"></img>
+                    </Grid >
 
-                <Grid item xs={5} md={5} lg={5} className='box-texto'>
-                    <p className="texto-page">
-                    O Prof Ricardo Câncio  Santos, mestre em economia aplicada pela USP
-                    e ex insider te disponibiliza acesso a informação que ele gostaria
-                    de ter tido no início de sua carreira há mais de 20 anos atrás
-                    “Acesso a mente de um investidor experiente”
-                    Ademais te convida para fazer parte não só de sua comunidade nos
-                    mercados financeiros mas também em seu grupo  de network focado em
-                    turbinar o seu investimento no mundo real por meio de empreendedorismo
-                    e informação de Network.
-                    </p>
-                    
-                    <Grid className='form-grid'>
-                    <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
-                    
-                    <InputsForm/>
-                    <p className='texto-form'>
-                        Quer divulgar seu produto ou serviço
-                        gratuito no nosso Market Place? 
-                    </p>
-                        <select name="select">
-                            <option value="sim" selected>Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                        <ButtonSubmit url={'http://localhost:3000/apresentacao/trilhacerta'} />
-                    </Grid>    
+                    <Grid item xs={12} md={6} lg={6} className='box-texto'>
+                        <p className="texto-page">
+                        O Prof Ricardo Câncio  Santos, mestre em economia aplicada pela USP
+                        e ex insider te disponibiliza acesso a informação que ele gostaria
+                        de ter tido no início de sua carreira há mais de 20 anos atrás
+                        “Acesso a mente de um investidor experiente”
+                        Ademais te convida para fazer parte não só de sua comunidade nos
+                        mercados financeiros mas também em seu grupo  de network focado em
+                        turbinar o seu investimento no mundo real por meio de empreendedorismo
+                        e informação de Network.
+                        </p>
+                        
+                        <Grid className='form-grid'>
+                            <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
+                            <InputsForm/>
+                            <p className='texto-form'>
+                                Quer divulgar seu produto ou serviço
+                                gratuito no nosso Market Place? 
+                            </p>
+                            <select name="select">
+                                <option value="sim" selected>Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                            <ButtonSubmit url={'http://localhost:3000/apresentacao/trilhacerta'} />
+                        </Grid>    
+                    </Grid>
+                        
                 </Grid>
-                       
-            </Grid>
-
+            </Container>
             <FooterAppBar/>    
     
         </Container>
