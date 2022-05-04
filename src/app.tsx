@@ -1,14 +1,12 @@
 import React from 'react';
-import Apresentacao from './pages/apresentacao';
-import TrilhaCerta from './pages/trilhaCerta/index';
+import Routes from './routes'
 
 
 export default function App() {
   return (
-    <>
-      <Apresentacao />
-      <TrilhaCerta />
-    </>
+    <div>
+      <Routes />
+    </div>
   );
 }
 
