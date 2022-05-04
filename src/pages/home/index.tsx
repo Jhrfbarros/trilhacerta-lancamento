@@ -4,10 +4,8 @@ import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
 import { Grid, Container } from '@mui/material';
-import ButtonSubmit from '../../../src/components/button';
-import InputsForm from '../../../src/components/inputs';
-
-
+import ButtonSubmit from '../../components/button';
+import InputsForm from '../../components/inputs';
 
 const minicurriculo = require('../../assets/img/minicurriculo.jpg');
 const video = require('../../assets/video/videochamada.mp4')
@@ -19,16 +17,16 @@ export default function Apresentacao() {
         <Container maxWidth={false} className="default-page">
             
             <HeaderAppBar />
-
-            <Grid container className='video-container'>
-                <Grid item xs={12} md={12} lg={12} className='video-grid'>
-                    <video className='player' controls>
-                        <source src={video} type="videochamada/mp4"/>
-                    </video>
+            <Container>
+                <Grid container className='video-container'>
+                    <Grid item xs={12} md={12} lg={12} className='video-grid'>
+                        <video className='player' controls>
+                            <source src={video} type="videochamada/mp4"/>
+                        </video>
+                    </Grid>
+                    
                 </Grid>
-                
-            </Grid>
-            
+            </Container>
             
             <Grid container className='form-container'>
                 <Grid item xs={6} md={6} lg={6} className='curriculo-grid'>
