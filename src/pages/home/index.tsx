@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //import '../../../src/assets/video/videochamada.mp4';
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
@@ -6,11 +6,40 @@ import './index.css'
 import { Grid, Container } from '@mui/material';
 import ButtonSubmit from '../../components/button';
 import InputsForm from '../../components/inputs';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { makeStyles } from "@material-ui/core/styles";
 
-const minicurriculo = require('../../assets/img/minicurriculo.jpg');
-const video = require('../../assets/video/videochamada.mp4')
+const color = "red"
+const useStyles = makeStyles(() => ({
+    select: {
+      "&:before": {
+        borderColor: color
+      },
+      "&:after": {
+        borderColor: color
+      }
+    },
+    icon: {
+      fill: color
+    }
+}));
 
 export default function Apresentacao() {
+
+    const minicurriculo = require('../../assets/img/minicurriculo.jpg');
+    const video = require('../../assets/video/videochamada.mp4')
+
+    const classes = useStyles();
+
+    const [divulgacao, setDivulgacao] = useState<string>("Sim");
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setDivulgacao(event.target.value as string);
+    };
+
+    
+
 
     return (
 
@@ -52,10 +81,29 @@ export default function Apresentacao() {
                                 Quer divulgar seu produto ou serviço
                                 gratuito no nosso Market Place? 
                             </p>
-                            <select name="select">
-                                <option value="sim" selected>Sim</option>
-                                <option value="nao">Não</option>
-                            </select>
+
+                            <Select
+                                id="divulgacao"
+                                value={divulgacao}
+                                label="Divulgacao"
+                                onChange={handleChange}
+                                className={classes.select}
+                                inputProps={{
+                                    classes: {
+                                        icon: classes.icon
+                                    }
+                                }}
+                                sx={{
+                                    width: 100,
+                                    height: 50,
+                                    color: "#FFF",
+                                    borderColor: "#FFF"
+                                }}
+                                >
+                                <MenuItem selected value={"Sim"}>Sim</MenuItem>
+                                <MenuItem value={"Não"}>Não</MenuItem>
+                            </Select>
+
                             <ButtonSubmit url={'http://localhost:3000/apresentacao/trilhacerta'} />
                         </Grid>    
                     </Grid>
