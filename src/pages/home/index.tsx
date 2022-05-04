@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import '../../../src/assets/video/videochamada.mp4';
+
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
@@ -28,7 +28,7 @@ const useStyles = makeStyles(() => ({
 export default function Apresentacao() {
 
     const minicurriculo = require('../../assets/img/minicurriculo.jpg');
-    const video = require('../../assets/video/videochamada.mp4')
+    
 
     const classes = useStyles();
 
@@ -49,9 +49,7 @@ export default function Apresentacao() {
             <Container>
                 <Grid container className='video-container'>
                     <Grid item xs={12} md={12} lg={12} className='video-grid'>
-                        <video className='player' controls>
-                            <source src={video} type="videochamada/mp4"/>
-                        </video>
+                    <iframe width="100%" className='player' height="500" src="https://www.youtube.com/embed/BQ0s7Zgnwr8" title="Apresentação Trilha Certa"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
                     </Grid>
                     
                 </Grid>
@@ -104,7 +102,7 @@ export default function Apresentacao() {
                                 <MenuItem value={"Não"}>Não</MenuItem>
                             </Select>
 
-                            <ButtonSubmit url={'http://localhost:3000/apresentacao/trilhacerta'} />
+                            <ButtonSubmit url={'http://localhost:3000/grupos'} />
                         </Grid>    
                     </Grid>
                         
