@@ -5,10 +5,7 @@ import FooterAppBar from "../../components/footerAppBar";
 import './index.css';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-
-
-
-
+import Link from '@mui/material/Link';
 
 export default function TrilhaCerta() {
 
@@ -38,8 +35,8 @@ export default function TrilhaCerta() {
                     <p>TEXTO QUE AINDA SERÁ ENVIADO PELO RICARDO</p>
                         
                     <Grid className='communication-direction'>
-                        <a href='#'><WhatsAppIcon /> ENTRE NO GRUPO DO</a><br />
-                        <a href=''><SendOutlinedIcon/> ENTRE NO GRUPO DO</a>
+                        <Link href="#"><WhatsAppIcon /> ENTRE NO GRUPO DO</Link><br />
+                        <Link href="#"><SendOutlinedIcon/> ENTRE NO GRUPO DO</Link>
                     </Grid>    
                 </Grid>
                         
