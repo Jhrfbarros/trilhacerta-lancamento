@@ -38,8 +38,8 @@ export default function TrilhaCerta() {
                     <p>TEXTO QUE AINDA SERÁ ENVIADO PELO RICARDO</p>
                         
                     <Grid className='communication-direction'>
-                        <p>ENTRE NO GRUPO DO <WhatsAppIcon/></p>
-                        <p>ENTRE NO GRUPO DO <SendOutlinedIcon/></p>
+                        <a href='#'><WhatsAppIcon /> ENTRE NO GRUPO DO</a><br />
+                        <a href=''><SendOutlinedIcon/> ENTRE NO GRUPO DO</a>
                     </Grid>    
                 </Grid>
                         

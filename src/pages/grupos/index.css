@@ -22,7 +22,18 @@
 
 .communication-direction {
     margin-top: 30px;
+}
 
+.communication-direction a{
+    font-size: 16px;
+    line-height: 30px;
+    color:#FFF;
+}
+
+.communication-direction svg{
+    width: 20px;
+    float: left;
+    margin: 4px 4px 0 0;
 }
 
 .text-grid {
