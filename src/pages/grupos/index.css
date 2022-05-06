@@ -7,6 +7,11 @@
     color: #FFFFFF;
     background: rgb(33,17,114);
     background: linear-gradient(180deg, rgba(33,17,114,1) 0%, rgba(18,55,142,1) 100%);
+    
+}
+
+.group-container{
+    min-height: 700px;
 }
 
 .title-grid {
@@ -30,5 +35,4 @@
 .image-trilhacerta .image-group{ 
     border-radius: 20px;
     width: 100%;
-    height: 700px; 
 }

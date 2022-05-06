@@ -14,10 +14,6 @@ export default function TrilhaCerta() {
 
     const imagemdatrilhacerta = require('../../assets/img/imagemdatrilhacerta.jpeg');
     
-
-    
-
-   
     return (
 
         <Container maxWidth={false} className="group-page">
