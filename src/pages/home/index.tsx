@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //import emailjs from '@emailjs/browser';
-
+import { makeStyles } from "@material-ui/core/styles";
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
@@ -66,9 +66,11 @@ export default function Apresentacao() {
 
     }
 
-      
+  
+   
     
     return (
+        
 
         <Container maxWidth={false} className="default-page">
             
@@ -103,38 +105,51 @@ export default function Apresentacao() {
                             <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
                             
                             <Box component="form">
-                                <TextField name='nome' onChange={handleUpdateInput} value={nome} className='input' id="outlined-basic" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
-                                <TextField name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="outlined-basic" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
+                                <TextField sx={{
+                                "& .MuiInputLabel-root": {color: 'white'},
+                                "& .MuiOutlinedInput-root": {
+                                "& > fieldset": { borderColor: "white" },
+                                },
+                            }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="outlined-basic" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                <TextField sx={{
+                                "& .MuiInputLabel-root": {color: 'white'},
+                                "& .MuiOutlinedInput-root": {
+                                "& > fieldset": { borderColor: "white" },
+                                },
+                            }} name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="outlined-basic" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
                             </Box>
                             
                             <p className='texto-form'>
                                 Quer divulgar seu produto ou serviço
                                 gratuito no nosso Market Place? 
                             </p>
+                            
+                            <Grid container>
+                                <Grid item xs={12} md={6} lg={6}>
+                                    <Select
+                                        id="divulgacao"
+                                        value={divulgacao}
+                                        label="Divulgacao"
+                                        onChange={handleChange}
+                                        className="dropdown"
+                                        sx={{
+                                            width: 100,
+                                            height: 40,
+                                            color: "#FFF",
+                                            
+                                        }}
+                                        >
+                                            <MenuItem selected value={"Sim"}>Sim</MenuItem>
+                                            <MenuItem value={"Não"}>Não</MenuItem>
+                                    </Select>
+                                </Grid>    
 
-                            <Select
-                                id="divulgacao"
-                                value={divulgacao}
-                                label="Divulgacao"
-                                onChange={handleChange}
-                                className="dropdown"
-                                
-                                
-                                sx={{
-                                    width: 100,
-                                    height: 50,
-                                    color: "#FFF",
-                                    borderColor: "#FFF"
-                                }}
-                                >
-                                <MenuItem selected value={"Sim"}>Sim</MenuItem>
-                                <MenuItem value={"Não"}>Não</MenuItem>
-                            </Select>
-
-                            <Stack spacing={2} direction="row">
-                                <Button onClick={handleSubmit} className='button-form' variant="contained">Enviar</Button>
-                            </Stack>
-  
+                                <Grid item xs={12} md={6} lg={6}>
+                                    <Stack spacing={2} direction="row">
+                                        <Button onClick={handleSubmit} className='button-form' variant="contained">Enviar</Button>
+                                    </Stack>
+                                </Grid>
+                            </Grid>    
                         </Grid>    
                     </Grid>
                         
