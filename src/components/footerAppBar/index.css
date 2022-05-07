@@ -1,6 +1,6 @@
 .text-footer {
     align-items: center;
     background-color: #12378e !important;
-    
-    font-size: 10px;
+    text-align: center;
+    padding: 10px 0;
 }

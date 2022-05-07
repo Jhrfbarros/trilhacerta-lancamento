@@ -5,19 +5,12 @@ import FooterAppBar from "../../components/footerAppBar";
 import './index.css';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-
-
-
-
+import Link from '@mui/material/Link';
 
 export default function TrilhaCerta() {
 
     const imagemdatrilhacerta = require('../../assets/img/imagemdatrilhacerta.jpeg');
     
-
-    
-
-   
     return (
 
         <Container maxWidth={false} className="group-page">
@@ -42,8 +35,8 @@ export default function TrilhaCerta() {
                     <p>TEXTO QUE AINDA SERÁ ENVIADO PELO RICARDO</p>
                         
                     <Grid className='communication-direction'>
-                        <p>ENTRE NO GRUPO DO <WhatsAppIcon/></p>
-                        <p>ENTRE NO GRUPO DO <SendOutlinedIcon/></p>
+                        <Link href="#"><WhatsAppIcon /> ENTRE NO GRUPO DO</Link><br />
+                        <Link href="#"><SendOutlinedIcon/> ENTRE NO GRUPO DO</Link>
                     </Grid>    
                 </Grid>
                         

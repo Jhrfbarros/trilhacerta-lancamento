@@ -7,6 +7,11 @@
     color: #FFFFFF;
     background: rgb(33,17,114);
     background: linear-gradient(180deg, rgba(33,17,114,1) 0%, rgba(18,55,142,1) 100%);
+    
+}
+
+.group-container{
+    min-height: 700px;
 }
 
 .title-grid {
@@ -17,7 +22,18 @@
 
 .communication-direction {
     margin-top: 30px;
+}
 
+.communication-direction a{
+    font-size: 16px;
+    line-height: 30px;
+    color:#FFF;
+}
+
+.communication-direction svg{
+    width: 20px;
+    float: left;
+    margin: 4px 4px 0 0;
 }
 
 .text-grid {
@@ -30,5 +46,4 @@
 .image-trilhacerta .image-group{ 
     border-radius: 20px;
     width: 100%;
-    height: 700px; 
 }
