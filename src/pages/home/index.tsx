@@ -1,38 +1,27 @@
 import React, { useState } from 'react';
+//import emailjs from '@emailjs/browser';
 
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
 import { Grid, Container } from '@mui/material';
-import ButtonSubmit from '../../components/button';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 //import InputsForm from '../../components/inputs';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { makeStyles } from "@material-ui/core/styles";
+
 import  Box  from '@material-ui/core/Box';
 import  TextField  from '@mui/material/TextField';
 
-const color = "red"
-const useStyles = makeStyles(() => ({
-    select: {
-      "&:before": {
-        borderColor: color
-      },
-      "&:after": {
-        borderColor: color
-      }
-    },
-    icon: {
-      fill: color
-    }
-}));
+
 
 export default function Apresentacao() {
 
     const minicurriculo = require('../../assets/img/minicurriculo.jpg');
     
 
-    const classes = useStyles();
+
 
     const [divulgacao, setDivulgacao] = useState<string>("Sim");
 
@@ -55,9 +44,27 @@ export default function Apresentacao() {
             setTelefone(value)
             
         }
-       
-              
+                  
+    };
+
+    const sendEmail = () => {
+        
+    
+        //emailjs.sendForm('service_nox0wxq', 'template_o6elv0r', "", 'qWZnZvabPtv9zXY0Z')
+          //.then((result) => {
+              //console.log(result.text);
+          //}, //(error) => {
+              //console.log(error.text);
+          //});
       };
+    
+    function handleSubmit(e: any) {
+        console.log("cika")
+        e.preventDefault();
+        sendEmail();
+        window.location.href = "http://localhost:3000/grupos";
+
+    }
 
       
     
@@ -110,12 +117,9 @@ export default function Apresentacao() {
                                 value={divulgacao}
                                 label="Divulgacao"
                                 onChange={handleChange}
-                                className={classes.select}
-                                inputProps={{
-                                    classes: {
-                                        icon: classes.icon
-                                    }
-                                }}
+                                className="dropdown"
+                                
+                                
                                 sx={{
                                     width: 100,
                                     height: 50,
@@ -127,7 +131,10 @@ export default function Apresentacao() {
                                 <MenuItem value={"Não"}>Não</MenuItem>
                             </Select>
 
-                            <ButtonSubmit url={'http://localhost:3000/grupos'}/>
+                            <Stack spacing={2} direction="row">
+                                <Button onClick={handleSubmit} className='button-form' variant="contained">Enviar</Button>
+                            </Stack>
+  
                         </Grid>    
                     </Grid>
                         
