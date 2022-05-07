@@ -5,10 +5,12 @@ import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
 import { Grid, Container } from '@mui/material';
 import ButtonSubmit from '../../components/button';
-import InputsForm from '../../components/inputs';
+//import InputsForm from '../../components/inputs';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { makeStyles } from "@material-ui/core/styles";
+import  Box  from '@material-ui/core/Box';
+import  TextField  from '@mui/material/TextField';
 
 const color = "red"
 const useStyles = makeStyles(() => ({
@@ -38,6 +40,27 @@ export default function Apresentacao() {
         setDivulgacao(event.target.value as string);
     };
 
+    const [nome, setNome] = useState("");
+    const [telefone, setTelefone] = useState("");
+
+    const handleUpdateInput = (e: any) => {
+        const value = e.target.value;
+    
+        const name = e.target.name;
+        if (name === 'nome') {
+            setNome(value)
+            
+        }
+        if (name === 'telefone') {
+            setTelefone(value)
+            
+        }
+       
+              
+      };
+
+      
+    
     return (
 
         <Container maxWidth={false} className="default-page">
@@ -71,7 +94,12 @@ export default function Apresentacao() {
                         
                         <Grid className='form-grid'>
                             <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
-                            <InputsForm/>
+                            
+                            <Box component="form">
+                                <TextField name='nome' onChange={handleUpdateInput} value={nome} className='input' id="outlined-basic" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                <TextField name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="outlined-basic" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
+                            </Box>
+                            
                             <p className='texto-form'>
                                 Quer divulgar seu produto ou serviço
                                 gratuito no nosso Market Place? 
@@ -99,7 +127,7 @@ export default function Apresentacao() {
                                 <MenuItem value={"Não"}>Não</MenuItem>
                             </Select>
 
-                            <ButtonSubmit url={'http://localhost:3000/grupos'} />
+                            <ButtonSubmit url={'http://localhost:3000/grupos'}/>
                         </Grid>    
                     </Grid>
                         

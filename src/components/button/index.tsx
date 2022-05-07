@@ -8,7 +8,7 @@ interface ButtonModalProps {
 }
 
 
-export default function ButtonSubmit({url}:ButtonModalProps) {
+export default function ButtonSubmit(e:any,{url}:ButtonModalProps) {
   return (
     <Stack spacing={2} direction="row">
         <Button href={url} className='button-form' variant="contained">Enviar</Button>
