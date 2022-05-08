@@ -64,11 +64,10 @@ export default function Apresentacao() {
         sendEmail();
         window.location.href = "http://localhost:3000/grupos";
 
-    }
+    } 
 
-  
-   
-    
+    const selectColor = '#FFF';
+
     return (
         
 
@@ -105,18 +104,24 @@ export default function Apresentacao() {
                             <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
                             
                             <Box component="form">
-                                <TextField sx={{
-                                "& .MuiInputLabel-root": {color: 'white'},
-                                "& .MuiOutlinedInput-root": {
-                                "& > fieldset": { borderColor: "white" },
-                                },
-                            }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="outlined-basic" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
-                                <TextField sx={{
-                                "& .MuiInputLabel-root": {color: 'white'},
-                                "& .MuiOutlinedInput-root": {
-                                "& > fieldset": { borderColor: "white" },
-                                },
-                            }} name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="outlined-basic" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
+                                <Grid container spacing={2}>
+                                    <Grid item xs={12} md={6} lg={6}>
+                                        <TextField sx={{
+                                            "& .MuiInputLabel-root": {color: 'white'},
+                                            "& .MuiOutlinedInput-root": {
+                                                "& > fieldset": { borderColor: "white" },
+                                            },
+                                            }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                    </Grid>
+                                    <Grid item xs={12} md={6} lg={6}>
+                                        <TextField sx={{
+                                            "& .MuiInputLabel-root": {color: 'white'},
+                                            "& .MuiOutlinedInput-root": {
+                                                "& > fieldset": { borderColor: "white" },
+                                            },
+                                            }} name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
+                                    </Grid>
+                                </Grid>
                             </Box>
                             
                             <p className='texto-form'>
@@ -124,19 +129,26 @@ export default function Apresentacao() {
                                 gratuito no nosso Market Place? 
                             </p>
                             
-                            <Grid container>
-                                <Grid item xs={12} md={6} lg={6}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6} md={10} lg={10}>
+                                   
                                     <Select
                                         id="divulgacao"
                                         value={divulgacao}
                                         label="Divulgacao"
                                         onChange={handleChange}
-                                        className="dropdown"
                                         sx={{
-                                            width: 100,
+                                            width: '100%',
                                             height: 40,
-                                            color: "#FFF",
-                                            
+                                            color: selectColor,
+                                            border: "1px solid",
+                                            borderColor: selectColor,
+                                            "&.Mui-focused": {
+                                                color: selectColor,
+                                            },
+                                            "& .MuiSvgIcon-root": {
+                                                color: selectColor,
+                                            },
                                         }}
                                         >
                                             <MenuItem selected value={"Sim"}>Sim</MenuItem>
@@ -144,7 +156,7 @@ export default function Apresentacao() {
                                     </Select>
                                 </Grid>    
 
-                                <Grid item xs={12} md={6} lg={6}>
+                                <Grid item xs={6} md={2} lg={2}>
                                     <Stack spacing={2} direction="row">
                                         <Button onClick={handleSubmit} className='button-form' variant="contained">Enviar</Button>
                                     </Stack>
