@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid, Container } from "@mui/material";
 import HeaderAppBar from "../../components/headerAppBar";
 import FooterAppBar from "../../components/footerAppBar";
@@ -11,14 +11,7 @@ export default function TrilhaCerta() {
 
     const imagemdatrilhacerta = require('../../assets/img/imagemdatrilhacerta.jpeg');
     
-    const [input, setInput] = useState("");
-
-    const handleUpdateInput = (e: any) => {
-        const value = e.target.value;
     
-        setInput(value);
-        
-      };
     
     return (
 

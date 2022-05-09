@@ -15,7 +15,7 @@ export default function HeaderAppBar() {
           </Typography>
           
           <Typography className='slogan' variant="h6" color="inherit" component="p">
-            Você um passo a frente
+            Você um passo à frente
           </Typography>
         
       </AppBar>

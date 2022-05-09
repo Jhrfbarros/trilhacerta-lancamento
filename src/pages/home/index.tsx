@@ -109,6 +109,9 @@ export default function Apresentacao() {
                                             "& .MuiInputLabel-root": {color: 'white'},
                                             "& .MuiOutlinedInput-root": {
                                                 "& > fieldset": { borderColor: "white" },
+                                                '&:hover fieldset': {
+                                                    borderColor: 'white',
+                                                     },
                                             },
                                             }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
                                     </Grid>
@@ -116,7 +119,10 @@ export default function Apresentacao() {
                                         <TextField sx={{
                                             "& .MuiInputLabel-root": {color: 'white'},
                                             "& .MuiOutlinedInput-root": {
-                                                "& > fieldset": { borderColor: "white" },
+                                                "& > fieldset": { borderColor: 'white' },
+                                                '&:hover fieldset': {
+                                                    borderColor: 'white',
+                                                     },
                                             },
                                             }} name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
                                     </Grid>
