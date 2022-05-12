@@ -25,47 +25,40 @@ export default function Apresentacao() {
 
     const minicurriculo = require('../../assets/img/minicurriculo.jpg');
 
-    const [divulgacao, setDivulgacao] = useState<string>("Sim");
+    
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setDivulgacao(event.target.value as string);
-    };
 
-    const [nome, setNome] = useState("");
-    const [telefone, setTelefone] = useState("");
 
-    const handleUpdateInput = (e: any) => {
-        const value = e.target.value;
-        const name = e.target.name;
-        
-        if (name === 'nome') {
-            setNome(value)
-        }
-        if (name === 'telefone') {
-            setTelefone(value)
-        }
-    };
+    const handleChange = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+      };
+
+
+ 
 
     const sendEmail = () => {
         console.log("Send Email!");
-        let formData = new FormData();
-        formData.append(nome, telefone);
+        
+        
 
-        emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', form.current, 'qWZnZvabPtv9zXY0Z')
+        emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', toSend, 'qWZnZvabPtv9zXY0Z')
           .then((result) => {
               console.log(result.text);
           }, (error) => {
               console.log(error.text);
           });
     };
+
+    const [toSend, setToSend] = useState({
+        nome: '',
+        telefone: '',
+        divulgacao: 'Sim',
+    }),[];
+    
     
     function handleSubmit(e: any) {
         e.preventDefault();
-
-        if (nome === "") {
-            return;
-        }else{
-            sendEmail();
+        sendEmail();
             //window.location.href = "http://localhost:3000/grupos";
         }
     } 
@@ -121,7 +114,7 @@ export default function Apresentacao() {
                                                         "& > fieldset": { borderColor: "white" },
                                                         '&:hover fieldset': { borderColor: 'white'},
                                                     },
-                                                }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                                }} name='nome' onChange={handleUpdateInput} value={toSend.nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={6}>
                                             
@@ -129,7 +122,7 @@ export default function Apresentacao() {
                                             <InputMask
                                                 alwaysShowMask
                                                 mask="99/99/9999"
-                                                value={telefone}
+                                                value={toSend.telefone}
                                                 onChange={handleUpdateInput}
                                                 name='telefone'
                                                 >
@@ -173,7 +166,7 @@ export default function Apresentacao() {
                                    
                                     <Select
                                         id="divulgacao"
-                                        value={divulgacao}
+                                        value={toSend.divulgacao}
                                         label="Divulgacao"
                                         onChange={handleChange}
                                         sx={{
