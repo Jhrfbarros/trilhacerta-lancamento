@@ -3,6 +3,7 @@ import React from 'react';
 import emailjs from '@emailjs/browser';
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
+import InputMasked from '../../components/inputMasked';
 import './index.css'
 import { Grid, Container } from '@mui/material';
 import Stack from '@mui/material/Stack';
@@ -20,19 +21,17 @@ import InputMask from "react-input-mask";
 export default function Apresentacao() {
 
     const minicurriculo = require('../../assets/img/minicurriculo.jpg');
-
     
     function sendEmail(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log("Send Email!");
-
+        console.log(e.target);
         emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', e.currentTarget, 'qWZnZvabPtv9zXY0Z')
           .then((result) => {
                 console.log(result.text);
-                window.location.href = "http://localhost:3000/grupos";
+                //window.location.href = "http://localhost:3000/grupos";
           }, (error) => {
                 console.log(error.text);
-
+                alert("Tente novamente mais tarde");
           });
     };
 
@@ -70,14 +69,17 @@ export default function Apresentacao() {
                         </p>
                         
                         <Grid className='form-grid'>
-                            <form onSubmit={sendEmail}>
-                            <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
                             
-                            <Box component="form">
+                            <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
+                            <form onSubmit={sendEmail}>
+                            <Box>
                                 <Grid container spacing={2}>
                                     
                                         <Grid item xs={12} md={6} lg={6}>
                                             {/*
+                                            <InputMasked />
+
+                                            
                                                 error={nome === ""}
                                                 helperText={nome === "" ? 'vazio!' : ' '}
                                             */}
@@ -91,24 +93,15 @@ export default function Apresentacao() {
                                                 }} name='nome' className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={6}>
-                                            
-                                            <InputMask
-                                                alwaysShowMask
-                                                mask="99/99/9999"
-                                                name='telefone'
-                                                >
-                                                {/*
-                                                    'props' supplied to TextField weren't matching the required type. 
-                                                    Hence we use '&' operator which is for intersecting two types
-                                                */} 
-                                                {/*
-                                                    ()=> <TextField />
-                                                */}
-                                            </InputMask>
-                                            
-
-
+                                         
                                             {/*
+                                            <InputMask alwaysShowMask mask="99/99/9999">
+                                                <TextField />
+                                            </InputMask>
+                                            */}
+
+
+                                            {
                                             <TextField sx={{
                                                 "& .MuiInputLabel-root": {color: 'white'},
                                                 "& .MuiOutlinedInput-root": {
@@ -117,10 +110,10 @@ export default function Apresentacao() {
                                                         borderColor: 'white',
                                                     },
                                                 },
-                                            }} required name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined">
+                                            }} required name='telefone' className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined">
                                                     
                                             </TextField>
-                                            */}
+                                            }
                                         </Grid>
                                     
                                 </Grid>
@@ -135,6 +128,7 @@ export default function Apresentacao() {
                                    
                                     <Select
                                         id="divulgacao"
+                                        name="divulgacao"
                                         label="Divulgacao"
                                         sx={{
                                             width: '100%',
