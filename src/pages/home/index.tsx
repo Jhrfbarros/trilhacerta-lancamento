@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-//import emailjs from '@emailjs/browser';
+import React, { useState, useRef } from 'react';
+
+import emailjs from '@emailjs/browser';
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
@@ -13,14 +14,16 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import  Box  from '@material-ui/core/Box';
 import  TextField  from '@mui/material/TextField';
 
+import InputMask from "react-input-mask";
+import FormControl from '@mui/material/FormControl';
+
 
 
 export default function Apresentacao() {
 
+    const form = useRef('');
+
     const minicurriculo = require('../../assets/img/minicurriculo.jpg');
-    
-
-
 
     const [divulgacao, setDivulgacao] = useState<string>("Sim");
 
@@ -33,36 +36,38 @@ export default function Apresentacao() {
 
     const handleUpdateInput = (e: any) => {
         const value = e.target.value;
-    
         const name = e.target.name;
+        
         if (name === 'nome') {
             setNome(value)
-            
         }
         if (name === 'telefone') {
             setTelefone(value)
-            
         }
-                  
     };
 
     const sendEmail = () => {
-        
-    
-        //emailjs.sendForm('service_nox0wxq', 'template_o6elv0r', "", 'qWZnZvabPtv9zXY0Z')
-          //.then((result) => {
-              //console.log(result.text);
-          //}, //(error) => {
-              //console.log(error.text);
-          //});
-      };
+        console.log("Send Email!");
+        let formData = new FormData();
+        formData.append(nome, telefone);
+
+        emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', form.current, 'qWZnZvabPtv9zXY0Z')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+    };
     
     function handleSubmit(e: any) {
-        console.log("cika")
         e.preventDefault();
-        sendEmail();
-        window.location.href = "http://localhost:3000/grupos";
 
+        if (nome === "") {
+            return;
+        }else{
+            sendEmail();
+            //window.location.href = "http://localhost:3000/grupos";
+        }
     } 
 
     const selectColor = '#FFF';
@@ -104,35 +109,64 @@ export default function Apresentacao() {
                             
                             <Box component="form">
                                 <Grid container spacing={2}>
-                                    <Grid item xs={12} md={6} lg={6}>
-                                        <TextField sx={{
-                                            "& .MuiInputLabel-root": {color: 'white'},
-                                            "& .MuiOutlinedInput-root": {
-                                                "& > fieldset": { borderColor: "white" },
-                                                '&:hover fieldset': {
-                                                    borderColor: 'white',
-                                                     },
-                                            },
-                                            }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
-                                    </Grid>
-                                    <Grid item xs={12} md={6} lg={6}>
-                                        <TextField sx={{
-                                            "& .MuiInputLabel-root": {color: 'white'},
-                                            "& .MuiOutlinedInput-root": {
-                                                "& > fieldset": { borderColor: 'white' },
-                                                '&:hover fieldset': {
-                                                    borderColor: 'white',
-                                                     },
-                                            },
-                                            }} name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
-                                    </Grid>
+                                    <form ref={form}>
+                                        <Grid item xs={12} md={6} lg={6}>
+                                            
+                                            <TextField 
+                                                error={nome === ""}
+                                                helperText={nome === "" ? 'vazio!' : ' '}
+                                                sx={{
+                                                    "& .MuiInputLabel-root": {color: 'white'},
+                                                    "& .MuiOutlinedInput-root": {
+                                                        "& > fieldset": { borderColor: "white" },
+                                                        '&:hover fieldset': { borderColor: 'white'},
+                                                    },
+                                                }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={6}>
+                                            
+                                            
+                                            <InputMask
+                                                alwaysShowMask
+                                                mask="99/99/9999"
+                                                value={telefone}
+                                                onChange={handleUpdateInput}
+                                                name='telefone'
+                                                >
+                                                {/*
+                                                    'props' supplied to TextField weren't matching the required type. 
+                                                    Hence we use '&' operator which is for intersecting two types
+                                                */} 
+                                                {/*
+                                                    ()=> <TextField />
+                                                */}
+                                            </InputMask>
+                                            
+
+
+                                            {/*
+                                            <TextField sx={{
+                                                "& .MuiInputLabel-root": {color: 'white'},
+                                                "& .MuiOutlinedInput-root": {
+                                                    "& > fieldset": { borderColor: 'white' },
+                                                    '&:hover fieldset': {
+                                                        borderColor: 'white',
+                                                    },
+                                                },
+                                            }} required name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined">
+                                                    
+                                            </TextField>
+                                            */}
+                                        </Grid>
+                                    </form>
                                 </Grid>
                             </Box>
                             
                             <p className='texto-form'>
                                 Quer divulgar seu produto ou serviço
-                                gratuito no nosso Market Place? 
+                                gratuito no nosso Market Place?
                             </p>
+                            
                             
                             <Grid container spacing={2}>
                                 <Grid item xs={6} md={10} lg={10}>
