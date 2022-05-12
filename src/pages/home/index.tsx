@@ -21,54 +21,23 @@ import FormControl from '@mui/material/FormControl';
 
 export default function Apresentacao() {
 
-    const form = useRef('');
-
     const minicurriculo = require('../../assets/img/minicurriculo.jpg');
 
-    const [divulgacao, setDivulgacao] = useState<string>("Sim");
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setDivulgacao(event.target.value as string);
-    };
-
-    const [nome, setNome] = useState("");
-    const [telefone, setTelefone] = useState("");
-
-    const handleUpdateInput = (e: any) => {
-        const value = e.target.value;
-        const name = e.target.name;
-        
-        if (name === 'nome') {
-            setNome(value)
-        }
-        if (name === 'telefone') {
-            setTelefone(value)
-        }
-    };
-
-    const sendEmail = () => {
+    
+    function sendEmail(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
         console.log("Send Email!");
-        let formData = new FormData();
-        formData.append(nome, telefone);
 
-        emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', form.current, 'qWZnZvabPtv9zXY0Z')
+        emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', e.currentTarget, 'qWZnZvabPtv9zXY0Z')
           .then((result) => {
               console.log(result.text);
+              //window.location.href = "http://localhost:3000/grupos";
           }, (error) => {
               console.log(error.text);
-          });
-    };
-    
-    function handleSubmit(e: any) {
-        e.preventDefault();
 
-        if (nome === "") {
-            return;
-        }else{
-            sendEmail();
-            //window.location.href = "http://localhost:3000/grupos";
-        }
-    } 
+          });
+        
+    };
 
     const selectColor = '#FFF';
 
@@ -105,32 +74,31 @@ export default function Apresentacao() {
                         </p>
                         
                         <Grid className='form-grid'>
+                            <form onSubmit={sendEmail}>
                             <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
                             
                             <Box component="form">
                                 <Grid container spacing={2}>
-                                    <form ref={form}>
+                                    
                                         <Grid item xs={12} md={6} lg={6}>
-                                            
-                                            <TextField 
+                                            {/*
                                                 error={nome === ""}
                                                 helperText={nome === "" ? 'vazio!' : ' '}
+                                            */}
+                                            <TextField 
                                                 sx={{
                                                     "& .MuiInputLabel-root": {color: 'white'},
                                                     "& .MuiOutlinedInput-root": {
                                                         "& > fieldset": { borderColor: "white" },
                                                         '&:hover fieldset': { borderColor: 'white'},
                                                     },
-                                                }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                                }} name='nome' className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={6}>
-                                            
                                             
                                             <InputMask
                                                 alwaysShowMask
                                                 mask="99/99/9999"
-                                                value={telefone}
-                                                onChange={handleUpdateInput}
                                                 name='telefone'
                                                 >
                                                 {/*
@@ -158,24 +126,20 @@ export default function Apresentacao() {
                                             </TextField>
                                             */}
                                         </Grid>
-                                    </form>
+                                    
                                 </Grid>
                             </Box>
-                            
                             <p className='texto-form'>
                                 Quer divulgar seu produto ou serviço
                                 gratuito no nosso Market Place?
                             </p>
-                            
                             
                             <Grid container spacing={2}>
                                 <Grid item xs={6} md={10} lg={10}>
                                    
                                     <Select
                                         id="divulgacao"
-                                        value={divulgacao}
                                         label="Divulgacao"
-                                        onChange={handleChange}
                                         sx={{
                                             width: '100%',
                                             height: 40,
@@ -197,10 +161,11 @@ export default function Apresentacao() {
 
                                 <Grid item xs={6} md={2} lg={2}>
                                     <Stack spacing={2} direction="row">
-                                        <Button onClick={handleSubmit} className='button-form' variant="contained">Enviar</Button>
+                                        <Button type="submit" className='button-form' variant="contained">Enviar</Button>
                                     </Stack>
                                 </Grid>
-                            </Grid>    
+                            </Grid> 
+                            </form>   
                         </Grid>    
                     </Grid>
                         
