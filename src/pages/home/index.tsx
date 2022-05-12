@@ -1,75 +1,45 @@
-import React, { useState } from 'react';
-//import emailjs from '@emailjs/browser';
+import React from 'react';
+
+import emailjs from '@emailjs/browser';
 import HeaderAppBar from '../../components/headerAppBar';
 import FooterAppBar from '../../components/footerAppBar';
 import './index.css'
 import { Grid, Container } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-//import InputsForm from '../../components/inputs';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 import  Box  from '@material-ui/core/Box';
 import  TextField  from '@mui/material/TextField';
+
+import InputMask from "react-input-mask";
 
 
 
 export default function Apresentacao() {
 
     const minicurriculo = require('../../assets/img/minicurriculo.jpg');
+
     
-
-
-
-    const [divulgacao, setDivulgacao] = useState<string>("Sim");
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setDivulgacao(event.target.value as string);
-    };
-
-    const [nome, setNome] = useState("");
-    const [telefone, setTelefone] = useState("");
-
-    const handleUpdateInput = (e: any) => {
-        const value = e.target.value;
-    
-        const name = e.target.name;
-        if (name === 'nome') {
-            setNome(value)
-            
-        }
-        if (name === 'telefone') {
-            setTelefone(value)
-            
-        }
-                  
-    };
-
-    const sendEmail = () => {
-        
-    
-        //emailjs.sendForm('service_nox0wxq', 'template_o6elv0r', "", 'qWZnZvabPtv9zXY0Z')
-          //.then((result) => {
-              //console.log(result.text);
-          //}, //(error) => {
-              //console.log(error.text);
-          //});
-      };
-    
-    function handleSubmit(e: any) {
-        console.log("cika")
+    function sendEmail(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        sendEmail();
-        window.location.href = "http://localhost:3000/grupos";
+        console.log("Send Email!");
 
-    } 
+        emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', e.currentTarget, 'qWZnZvabPtv9zXY0Z')
+          .then((result) => {
+                console.log(result.text);
+                window.location.href = "http://localhost:3000/grupos";
+          }, (error) => {
+                console.log(error.text);
+
+          });
+    };
 
     const selectColor = '#FFF';
 
     return (
         
-
         <Container maxWidth={false} className="default-page">
             
             <HeaderAppBar />
@@ -100,38 +70,64 @@ export default function Apresentacao() {
                         </p>
                         
                         <Grid className='form-grid'>
+                            <form onSubmit={sendEmail}>
                             <h2 className="subtitle-page">FORMULÁRIO DE CADASTRO</h2>
                             
                             <Box component="form">
                                 <Grid container spacing={2}>
-                                    <Grid item xs={12} md={6} lg={6}>
-                                        <TextField sx={{
-                                            "& .MuiInputLabel-root": {color: 'white'},
-                                            "& .MuiOutlinedInput-root": {
-                                                "& > fieldset": { borderColor: "white" },
-                                                '&:hover fieldset': {
-                                                    borderColor: 'white',
-                                                     },
-                                            },
-                                            }} name='nome' onChange={handleUpdateInput} value={nome} className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
-                                    </Grid>
-                                    <Grid item xs={12} md={6} lg={6}>
-                                        <TextField sx={{
-                                            "& .MuiInputLabel-root": {color: 'white'},
-                                            "& .MuiOutlinedInput-root": {
-                                                "& > fieldset": { borderColor: 'white' },
-                                                '&:hover fieldset': {
-                                                    borderColor: 'white',
-                                                     },
-                                            },
-                                            }} name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
-                                    </Grid>
+                                    
+                                        <Grid item xs={12} md={6} lg={6}>
+                                            {/*
+                                                error={nome === ""}
+                                                helperText={nome === "" ? 'vazio!' : ' '}
+                                            */}
+                                            <TextField 
+                                                sx={{
+                                                    "& .MuiInputLabel-root": {color: 'white'},
+                                                    "& .MuiOutlinedInput-root": {
+                                                        "& > fieldset": { borderColor: "white" },
+                                                        '&:hover fieldset': { borderColor: 'white'},
+                                                    },
+                                                }} name='nome' className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                        </Grid>
+                                        <Grid item xs={12} md={6} lg={6}>
+                                            
+                                            <InputMask
+                                                alwaysShowMask
+                                                mask="99/99/9999"
+                                                name='telefone'
+                                                >
+                                                {/*
+                                                    'props' supplied to TextField weren't matching the required type. 
+                                                    Hence we use '&' operator which is for intersecting two types
+                                                */} 
+                                                {/*
+                                                    ()=> <TextField />
+                                                */}
+                                            </InputMask>
+                                            
+
+
+                                            {/*
+                                            <TextField sx={{
+                                                "& .MuiInputLabel-root": {color: 'white'},
+                                                "& .MuiOutlinedInput-root": {
+                                                    "& > fieldset": { borderColor: 'white' },
+                                                    '&:hover fieldset': {
+                                                        borderColor: 'white',
+                                                    },
+                                                },
+                                            }} required name='telefone' onChange={handleUpdateInput} value={telefone} className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined">
+                                                    
+                                            </TextField>
+                                            */}
+                                        </Grid>
+                                    
                                 </Grid>
                             </Box>
-                            
                             <p className='texto-form'>
                                 Quer divulgar seu produto ou serviço
-                                gratuito no nosso Market Place? 
+                                gratuito no nosso Market Place?
                             </p>
                             
                             <Grid container spacing={2}>
@@ -139,9 +135,7 @@ export default function Apresentacao() {
                                    
                                     <Select
                                         id="divulgacao"
-                                        value={divulgacao}
                                         label="Divulgacao"
-                                        onChange={handleChange}
                                         sx={{
                                             width: '100%',
                                             height: 40,
@@ -163,10 +157,11 @@ export default function Apresentacao() {
 
                                 <Grid item xs={6} md={2} lg={2}>
                                     <Stack spacing={2} direction="row">
-                                        <Button onClick={handleSubmit} className='button-form' variant="contained">Enviar</Button>
+                                        <Button type="submit" className='button-form' variant="contained">Enviar</Button>
                                     </Stack>
                                 </Grid>
-                            </Grid>    
+                            </Grid> 
+                            </form>   
                         </Grid>    
                     </Grid>
                         
