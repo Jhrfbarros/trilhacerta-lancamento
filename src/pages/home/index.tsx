@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 
 import emailjs from '@emailjs/browser';
 import HeaderAppBar from '../../components/headerAppBar';
@@ -7,15 +7,13 @@ import './index.css'
 import { Grid, Container } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-//import InputsForm from '../../components/inputs';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 import  Box  from '@material-ui/core/Box';
 import  TextField  from '@mui/material/TextField';
 
 import InputMask from "react-input-mask";
-import FormControl from '@mui/material/FormControl';
 
 
 
@@ -30,20 +28,18 @@ export default function Apresentacao() {
 
         emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', e.currentTarget, 'qWZnZvabPtv9zXY0Z')
           .then((result) => {
-              console.log(result.text);
-              //window.location.href = "http://localhost:3000/grupos";
+                console.log(result.text);
+                window.location.href = "http://localhost:3000/grupos";
           }, (error) => {
-              console.log(error.text);
+                console.log(error.text);
 
           });
-        
     };
 
     const selectColor = '#FFF';
 
     return (
         
-
         <Container maxWidth={false} className="default-page">
             
             <HeaderAppBar />
