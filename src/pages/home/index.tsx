@@ -74,11 +74,11 @@ export default function Apresentacao() {
                             <form onSubmit={sendEmail}>
                             <Box>
                                 <Grid container spacing={2}>
-                                    
-                                        <Grid item xs={12} md={6} lg={6}>
-                                            {/*
-                                            <InputMasked />
 
+                                        <Grid item xs={12} md={6} lg={6}>
+                                                
+                                            <InputMasked />
+                                            {/*
                                             
                                                 error={nome === ""}
                                                 helperText={nome === "" ? 'vazio!' : ' '}
@@ -102,6 +102,7 @@ export default function Apresentacao() {
 
 
                                             {
+                                            
                                             <TextField sx={{
                                                 "& .MuiInputLabel-root": {color: 'white'},
                                                 "& .MuiOutlinedInput-root": {

@@ -47,8 +47,8 @@ export default function TrilhaCerta() {
                         </p>
                         
                     <Grid className='communication-direction'>
-                        <Link href="#"><WhatsAppIcon /> ENTRE NO GRUPO DO WHATTSAPP</Link><br />
-                        <Link href="#"><SendOutlinedIcon/> ENTRE NO GRUPO DO TELEGRAM</Link>
+                        <Link href="https://chat.whatsapp.com/E0XVHXM13kLLKWe3kGJAOC" target="blank"><WhatsAppIcon /> ENTRE NO GRUPO DO WHATTSAPP</Link><br />
+                        <Link href="https://t.me/+HNaVvH9mn8wwNjAx" target="blank"><SendOutlinedIcon/> ENTRE NO GRUPO DO TELEGRAM</Link>
                     </Grid>    
                 </Grid>
                         
