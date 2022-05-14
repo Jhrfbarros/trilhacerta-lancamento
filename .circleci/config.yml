@@ -12,7 +12,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: yarn test
+          command: yarn test --passWithNoTests
           name: Run tests
       - run:
           command: yarn build
