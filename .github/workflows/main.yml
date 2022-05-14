@@ -23,6 +23,8 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    local-dir: ./build
+    server-dir: /
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
