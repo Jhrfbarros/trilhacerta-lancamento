@@ -27,7 +27,7 @@ export default function InputMasked(props:TextFieldProps) {
 
     return(
         <div>
-            <TextField type="tel" {...props} onChange={handleChange} />
+            <TextField {...props} onChange={handleChange} />
         </div>
     )
 };

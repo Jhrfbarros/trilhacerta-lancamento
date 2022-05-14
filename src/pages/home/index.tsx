@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import emailjs from '@emailjs/browser';
 import HeaderAppBar from '../../components/headerAppBar';
@@ -9,7 +9,7 @@ import { Grid, Container } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import  Box  from '@material-ui/core/Box';
 
@@ -23,7 +23,7 @@ export default function Apresentacao() {
         emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', e.currentTarget, 'qWZnZvabPtv9zXY0Z')
           .then((result) => {
                 console.log(result.text);
-                //window.location.href = "http://localhost:3000/grupos";
+                window.location.href = "http://localhost:3000/grupos";
           }, (error) => {
                 console.log(error.text);
                 alert("Tente novamente mais tarde");
@@ -31,6 +31,13 @@ export default function Apresentacao() {
     };
 
     const selectColor = '#FFF';
+
+    const [divulgacao, setDivulgacao] = useState<string>("Sim");
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setDivulgacao(event.target.value as string);
+    };
+
 
     return (
         
@@ -113,6 +120,8 @@ export default function Apresentacao() {
                                         id="divulgacao"
                                         name="divulgacao"
                                         label="Divulgacao"
+                                        onChange={handleChange}
+                                        value={divulgacao}
                                         sx={{
                                             width: '100%',
                                             height: 40,
