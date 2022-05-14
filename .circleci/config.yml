@@ -20,8 +20,13 @@ jobs:
           root: ~/project
           paths:
             - .
-            
+
   web-deploy:
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - attach_workspace:
+          at: ~/project
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
@@ -64,4 +69,4 @@ workflows:
                 - main
     jobs:
       - build_and_test
-      
+   
