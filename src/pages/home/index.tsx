@@ -12,11 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
 import  Box  from '@material-ui/core/Box';
-import  TextField  from '@mui/material/TextField';
-
-import InputMask from "react-input-mask";
-
-
 
 export default function Apresentacao() {
 
@@ -77,33 +72,22 @@ export default function Apresentacao() {
 
                                         <Grid item xs={12} md={6} lg={6}>
                                                 
-                                            <InputMasked />
                                             {/*
-                                            
                                                 error={nome === ""}
                                                 helperText={nome === "" ? 'vazio!' : ' '}
                                             */}
-                                            <TextField 
+                                            <InputMasked 
                                                 sx={{
                                                     "& .MuiInputLabel-root": {color: 'white'},
                                                     "& .MuiOutlinedInput-root": {
                                                         "& > fieldset": { borderColor: "white" },
                                                         '&:hover fieldset': { borderColor: 'white'},
                                                     },
-                                                }} name='nome' className='input' id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
+                                                }} type="nome" name='nome' className='input' required id="nome" placeholder='Nome Completo' label="Nome Completo" variant="outlined" />
                                         </Grid>
                                         <Grid item xs={12} md={6} lg={6}>
-                                         
-                                            {/*
-                                            <InputMask alwaysShowMask mask="99/99/9999">
-                                                <TextField />
-                                            </InputMask>
-                                            */}
-
-
-                                            {
                                             
-                                            <TextField sx={{
+                                            <InputMasked sx={{
                                                 "& .MuiInputLabel-root": {color: 'white'},
                                                 "& .MuiOutlinedInput-root": {
                                                     "& > fieldset": { borderColor: 'white' },
@@ -111,10 +95,8 @@ export default function Apresentacao() {
                                                         borderColor: 'white',
                                                     },
                                                 },
-                                            }} required name='telefone' className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined">
-                                                    
-                                            </TextField>
-                                            }
+                                            }} required type="telefone" name='telefone' className='input' id="telefone" placeholder='WhattsApp' label="WhattsApp" variant="outlined" />
+                                            
                                         </Grid>
                                     
                                 </Grid>
