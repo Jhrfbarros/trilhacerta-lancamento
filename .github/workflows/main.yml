@@ -20,21 +20,16 @@ jobs:
         with:
           name: build
           path: build
-  deploy:
-    name: Deploy 🚀
-    needs: build
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout repository
-        uses: actions/checkout@main
-      - name: Download artifact
-        uses: actions/download-artifact@main
-        with: 
-          name: build
-          path: build
-      - name: Sync files to hosting
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with: 
-          server: ftp.trilhacerta.com
-          username: kodeman@trilhacerta.com
-          password: ${{ secrets.ftp_password }}
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ftp.trilhacerta.com
+        username: kodeman@trilhacerta.com
+        password: ${{ secrets.ftp_password }}
