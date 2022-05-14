@@ -20,32 +20,7 @@ jobs:
           root: ~/project
           paths:
             - .
-  deploy: # this can be any name you choose
-    docker:
-      - image: cimg/node:17.2.0
-    steps:
-      - attach_workspace:
-          at: ~/project
-
-workflows:
-  on_commit:
-    jobs:
-      - build_and_test
-      
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"       
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
-      - build_and_test
-      
-on: push
-name: 🚀 Deploy website on push
-jobs:
+            
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
@@ -73,3 +48,20 @@ jobs:
         username: kodeman@trilhacerta.com
         password: k0d&159753
         local-dir: build/
+
+workflows:
+  on_commit:
+    jobs:
+      - build_and_test
+      
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"       
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - build_and_test
+      
