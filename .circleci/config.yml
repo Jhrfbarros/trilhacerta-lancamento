@@ -1,0 +1,45 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.7.0
+
+jobs:
+  build_and_test:
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn test --passWithNoTests
+          name: Run tests
+      - run:
+          command: yarn build
+          name: Build app
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  deploy: # this can be any name you choose
+    docker:
+      - image: cimg/node:17.2.0
+    steps:
+      - attach_workspace:
+          at: ~/project
+
+workflows:
+  on_commit:
+    jobs:
+      - build_and_test
+      
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"       
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - build_and_test
+      
