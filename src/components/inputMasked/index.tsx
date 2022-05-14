@@ -10,7 +10,7 @@ export default function InputMasked(props:TextFieldProps) {
 
         switch (type) {
             case "nome":
-                value = value.replace(/[1234567890`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "");
+                value = value.replace(/[1234567890`~!@#$%^&*()_|+\-=?;:'",.<>{}[]\\\/]/gi, "");
                 break;
             case "telefone":
                 //Mask Format: (11)9999-9999
