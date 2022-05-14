@@ -35,4 +35,4 @@ jobs:
         username: kodeman@trilhacerta.com
         password: ${{ secrets.ftp_password }}
         local-dir: build/
-        server-dir: .
+        server-dir: /
