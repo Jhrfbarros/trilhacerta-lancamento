@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started - Trilha Certa
 
 Project Patterns
 - [ReactJS](https://github.com/facebook/create-react-app)
