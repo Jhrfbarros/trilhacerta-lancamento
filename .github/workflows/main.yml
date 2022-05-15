@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: ⛏ Build
+    name: ⛏ Build 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -36,6 +36,5 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
-          fileToExclude.txt
 
         
