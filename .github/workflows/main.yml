@@ -37,5 +37,11 @@ jobs:
         password: ${{ secrets.ftp_password }}
         local-dir: ./build/
         server-dir: ./
+        exclude: |
+          **/.circleci*
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          fileToExclude.txt
 
         
