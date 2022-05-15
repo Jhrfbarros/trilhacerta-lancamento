@@ -47,7 +47,7 @@ export default function Apresentacao() {
             <Container>
                 <Grid container className='video-container'>
                     <Grid item xs={12} md={12} lg={12} className='video-grid'>
-                        <iframe width="100%" className='player' height="500" src="https://www.youtube.com/embed/BQ0s7Zgnwr8" title="Apresentação Trilha Certa"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                        <iframe width='100%' className='player' height="500" src="https://www.youtube.com/embed/BQ0s7Zgnwr8" title="Apresentação Trilha Certa"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
                     </Grid>
                     
                 </Grid>
