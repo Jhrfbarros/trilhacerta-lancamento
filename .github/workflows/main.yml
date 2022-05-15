@@ -22,7 +22,7 @@ jobs:
           path: build
   web-deploy:
     name: 🎉 Deploy
-    needs: build
+    #needs: build
     runs-on: ubuntu-latest
     
     steps:
