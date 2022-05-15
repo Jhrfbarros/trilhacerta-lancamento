@@ -30,8 +30,7 @@ jobs:
         server: ftp.trilhacerta.com
         username: kodeman@trilhacerta.com
         password: ${{ secrets.ftp_password }}
-        local-dir: ./build/
-        server-dir: ./
+        local-dir: build/
         exclude: |
           **/.circleci*
           **/.git*
