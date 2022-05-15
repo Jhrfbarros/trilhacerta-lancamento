@@ -31,8 +31,12 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        local-dir: build/
         server: ftp.trilhacerta.com
         username: kodeman@trilhacerta.com
         password: ${{ secrets.ftp_password }}
+        local-dir: ./build/
+        server-dir: ./
+        state-name: .ftp-deploy-sync-state.json
+        log-level: standard
+
         
