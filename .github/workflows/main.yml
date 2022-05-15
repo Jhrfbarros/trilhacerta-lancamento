@@ -29,12 +29,6 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
     
-    - name: 📂 Download Artifact
-      uses: actions/download-artifact@main@v2
-      with:
-        name: build
-        path: build
-    
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
