@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build ⛏
+    name: ⛏ Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,11 +22,18 @@ jobs:
           path: build
   web-deploy:
     name: 🎉 Deploy
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
+    
+    - name: 📂 Download Artifact
+      uses: actions/download-artifact@main@v2
+      with:
+        name: build
+        path: build
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
@@ -36,7 +43,5 @@ jobs:
         password: ${{ secrets.ftp_password }}
         local-dir: ./build/
         server-dir: ./
-        state-name: .ftp-deploy-sync-state.json
-        log-level: standard
 
         
