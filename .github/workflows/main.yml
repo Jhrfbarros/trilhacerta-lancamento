@@ -17,7 +17,7 @@ jobs:
         run: yarn build
   web-deploy:
     name: 🎉 Deploy
-    #needs: build
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
@@ -32,6 +32,7 @@ jobs:
         password: ${{ secrets.ftp_password }}
         local-dir: build/
         exclude: |
+          **/.vscode*
           **/.circleci*
           **/.git*
           **/.git*/**
