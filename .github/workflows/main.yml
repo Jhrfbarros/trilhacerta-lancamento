@@ -30,8 +30,9 @@ jobs:
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      local-dir: build/
       with:
         server: ftp.trilhacerta.com
         username: kodeman@trilhacerta.com
         password: ${{ secrets.ftp_password }}
-        local-dir: build/
+        
