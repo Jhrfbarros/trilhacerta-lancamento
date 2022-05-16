@@ -23,7 +23,7 @@ export default function Apresentacao() {
         emailjs.sendForm('service_kl07p0d', 'template_o6elv0r', e.currentTarget, 'qWZnZvabPtv9zXY0Z')
           .then((result) => {
                 console.log(result.text);
-                window.location.href = "http://localhost:3000/grupos";
+                window.location.href = "https://trilhacerta.com/grupos";
           }, (error) => {
                 console.log(error.text);
                 alert("Tente novamente mais tarde");
@@ -79,10 +79,7 @@ export default function Apresentacao() {
 
                                         <Grid item xs={12} md={6} lg={6}>
                                                 
-                                            {/*
-                                                error={nome === ""}
-                                                helperText={nome === "" ? 'vazio!' : ' '}
-                                            */}
+                                           
                                             <InputMasked 
                                                 sx={{
                                                     "& .MuiInputLabel-root": {color: 'white'},
